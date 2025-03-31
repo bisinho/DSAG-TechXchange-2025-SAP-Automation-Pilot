@@ -1,0 +1,26 @@
+{
+        "body": "Alert Notification has received an audit event, about a resource named demo-app, with ID 866bedfe-c25f-4bf5-a008-c13cc9ccae63",
+        "subject": "Application has crashed",
+        "eventType": "app.crash",
+        "eventTimestamp": 1606733804,
+        "severity": "ERROR",
+        "category": "ALERT",
+        "tags": {
+            "metadata.audit-event-guid": "866bedfe-c25f-4bf5-a008-c13cc9ccae63",
+            "metadata.cell_id": "b11fa611-f91e-4168-a938-2d64eef96f32",
+            "metadata.exit_description": "APP/PROC/WEB: Exited with status 137 (out of memory)",
+            "metadata.index": "0",
+            "metadata.instance": "f162e465-2a00-486c-6d46-213d",
+            "metadata.reason": "CRASHED"
+        },
+        "resource": {
+            "resourceName": "<Totally real app - sflight-srv>",
+            "resourceType": "app",
+            "resourceInstance": "f5b05202-dd7b-4d5c-8ac1-56183ea2a403",
+            "tags": {
+                "metadata.cell_id": "b11fa611-f91e-4168-a938-2d64eef96f32",
+                "metadata.index": "0",
+                "metadata.instance": "f162e465-2a00-486c-6d46-213d"
+            }
+        }
+    }

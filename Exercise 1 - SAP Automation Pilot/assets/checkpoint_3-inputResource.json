@@ -1,0 +1,311 @@
+{
+    "id": "EDay-<<<TENANT_ID>>>",
+    "technicalName": "EDay",
+    "name": "EDay",
+    "description": "A catalog holding the materials for the enablement day",
+    "owner": "<<<TENANT_ID>>>",
+    "inputs": [
+        {
+            "id": "EDay-<<<TENANT_ID>>>:UserInfo:1",
+            "name": "UserInfo",
+            "description": "User and password for Cloud Foundry access",
+            "catalog": "EDay-<<<TENANT_ID>>>",
+            "owner": null,
+            "version": 1,
+            "keys": {
+                "password": {
+                    "type": "string",
+                    "sensitive": true,
+                    "description": null
+                },
+                "user": {
+                    "type": "string",
+                    "sensitive": false,
+                    "description": null
+                }
+            },
+            "values": {
+                "password": "<REPLACE_ME_AFTER_IMPORT>",
+                "user": "<REPLACE_ME>"
+            },
+            "tags": {}
+        }
+    ],
+    "commands": [
+        {
+            "configuration": {
+                "values": [],
+                "output": {},
+                "executors": [
+                    {
+                        "execute": "utils-sapcp:ObtainLock:1",
+                        "input": {
+                            "lockId": "ResizeAppWhenCrash"
+                        },
+                        "alias": "lockExecution",
+                        "description": null,
+                        "progressMessage": null,
+                        "initialDelay": null,
+                        "pause": null,
+                        "when": null,
+                        "validate": null,
+                        "autoRetry": null,
+                        "repeat": null,
+                        "errorMessages": [],
+                        "dryRun": null
+                    },
+                    {
+                        "execute": "applm-sapcp:GetCfAppState:1",
+                        "input": {
+                            "resourceGroup": "$(.execution.input.resourceGroup)",
+                            "password": "$(.execution.input.password)",
+                            "resourceName": "$(.execution.input.resourceName)",
+                            "region": "$(.execution.input.region)",
+                            "user": "$(.execution.input.user)",
+                            "subAccount": "$(.execution.input.subAccount)"
+                        },
+                        "alias": "getAppState",
+                        "description": null,
+                        "progressMessage": null,
+                        "initialDelay": null,
+                        "pause": null,
+                        "when": null,
+                        "validate": null,
+                        "autoRetry": null,
+                        "repeat": null,
+                        "errorMessages": [],
+                        "dryRun": null
+                    },
+                    {
+                        "execute": "monitoring-sapcp:GetCfAppEvents:1",
+                        "input": {
+                            "resourceGroup": "$(.execution.input.resourceGroup)",
+                            "password": "$(.execution.input.password)",
+                            "eventsNumber": "20",
+                            "resourceName": "$(.execution.input.resourceName)",
+                            "region": "$(.execution.input.region)",
+                            "user": "$(.execution.input.user)",
+                            "subAccount": "$(.execution.input.subAccount)"
+                        },
+                        "alias": "getAppEvents",
+                        "description": null,
+                        "progressMessage": null,
+                        "initialDelay": null,
+                        "pause": null,
+                        "when": {
+                            "semantic": "OR",
+                            "conditions": [
+                                {
+                                    "semantic": "OR",
+                                    "cases": [
+                                        {
+                                            "expression": "$(.getAppState.output.resourceInstances | filter(.state == \"CRASHED\") | length > 0)",
+                                            "operator": "EQUALS",
+                                            "semantic": "OR",
+                                            "values": [
+                                                "true"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "validate": null,
+                        "autoRetry": null,
+                        "repeat": null,
+                        "errorMessages": [],
+                        "dryRun": null
+                    },
+                    {
+                        "execute": "applm-sapcp:SetCfAppResources:1",
+                        "input": {
+                            "resourceGroup": "$(.execution.input.resourceGroup)",
+                            "password": "$(.execution.input.password)",
+                            "memory": "$(.getAppState.output.memory + 1024)",
+                            "resourceName": "$(.execution.input.resourceName)",
+                            "region": "$(.execution.input.region)",
+                            "user": "$(.execution.input.user)",
+                            "subAccount": "$(.execution.input.subAccount)"
+                        },
+                        "alias": "setAppResources",
+                        "description": null,
+                        "progressMessage": null,
+                        "initialDelay": null,
+                        "pause": null,
+                        "when": {
+                            "semantic": "OR",
+                            "conditions": [
+                                {
+                                    "semantic": "OR",
+                                    "cases": [
+                                        {
+                                            "expression": "$(.getAppEvents.output.eventsData | toObject.resources | map(.data.exit_description))",
+                                            "operator": "CONTAINS",
+                                            "semantic": "OR",
+                                            "values": [
+                                                "Exited with status 137 (out of memory)"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "validate": null,
+                        "autoRetry": null,
+                        "repeat": null,
+                        "errorMessages": [],
+                        "dryRun": null
+                    },
+                    {
+                        "execute": "applm-sapcp:RestartCfApp:1",
+                        "input": {
+                            "resourceGroup": "$(.execution.input.resourceGroup)",
+                            "password": "$(.execution.input.password)",
+                            "resourceName": "$(.execution.input.resourceName)",
+                            "region": "$(.execution.input.region)",
+                            "user": "$(.execution.input.user)",
+                            "subAccount": "$(.execution.input.subAccount)",
+                            "rollingRestart": "false"
+                        },
+                        "alias": "restartApp",
+                        "description": null,
+                        "progressMessage": null,
+                        "initialDelay": null,
+                        "pause": null,
+                        "when": {
+                            "semantic": "OR",
+                            "conditions": [
+                                {
+                                    "semantic": "OR",
+                                    "cases": [
+                                        {
+                                            "expression": "$(.setAppResources.executed)",
+                                            "operator": "EQUALS",
+                                            "semantic": "OR",
+                                            "values": [
+                                                "true"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "validate": null,
+                        "autoRetry": null,
+                        "repeat": null,
+                        "errorMessages": [],
+                        "dryRun": null
+                    }
+                ],
+                "listeners": []
+            },
+            "id": "EDay-<<<TENANT_ID>>>:ResizeAppWhenCrash:1",
+            "name": "ResizeAppWhenCrash",
+            "description": "Automation for resizing Cloud Foundry application in case of memory crash",
+            "catalog": "EDay-<<<TENANT_ID>>>",
+            "version": 1,
+            "inputKeys": {
+                "resourceGroup": {
+                    "type": "string",
+                    "sensitive": false,
+                    "required": true,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": null,
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": "Technical name of a Cloud Foundry Space, e.g.: my-space-demo-1"
+                },
+                "password": {
+                    "type": "string",
+                    "sensitive": true,
+                    "required": false,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": null,
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": "Cloud Foundry user's password"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "sensitive": false,
+                    "required": true,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": null,
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": "Technical name of a Cloud Foundry application, e.g.: my-app"
+                },
+                "region": {
+                    "type": "string",
+                    "sensitive": false,
+                    "required": true,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": [
+                        "metadata-sapcp:CfRegionData:1"
+                    ],
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": " Technical name of a Cloud Foundry region (as defined in CfRegionData), e.g. cf-eu10, cf-br10, etc."
+                },
+                "user": {
+                    "type": "string",
+                    "sensitive": false,
+                    "required": false,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": null,
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": "UserID/Email of the Cloud Foundry user which will be used for authentication"
+                },
+                "subAccount": {
+                    "type": "string",
+                    "sensitive": false,
+                    "required": true,
+                    "minSize": null,
+                    "maxSize": null,
+                    "minValue": null,
+                    "maxValue": null,
+                    "allowedValues": null,
+                    "allowedValuesFromInputKeys": null,
+                    "suggestedValues": null,
+                    "suggestedValuesFromInputKeys": null,
+                    "defaultValue": null,
+                    "defaultValueFromInput": null,
+                    "description": "Technical name of a Cloud Foundry Organization, e.g.: my-org-name-1"
+                }
+            },
+            "outputKeys": {},
+            "tags": {}
+        }
+    ]
+}
