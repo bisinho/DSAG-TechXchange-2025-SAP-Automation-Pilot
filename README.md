@@ -7,7 +7,6 @@ Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation
 This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application operations using **automation tools provided by SAP**.
 
 ## **Hands-on sessions covered during this session**
-pic-h19-001.png
 
 ![](./pic-h19-001.png) 
 
