@@ -4,13 +4,34 @@
 
 
 Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
-This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application development and operations using **automation tools provided by SAP**.
+This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application operations using **automation tools provided by SAP**.
+
+## **Hands-on sessions covered during this session**
+
 
 ![](./enablement-01.png)
 ---
 
 ## **Hands-on sessions covered in this repo**
 
+- Introduction to **SAP Automation Pilot** for automating **operational tasks and remediations**.
+-  **Hands-on:**
+  - Creating and testing **automation workflows** for common operational tasks.
+  - Exploring potential **use cases** where SAP Automation Pilot adds value for Ops teams by leveraging built-in GenAI features
+  - Extending SAP Automation Pilot built-in Content Generation Assistant by integrating it to SAP AI Core service
+
+# Product in focus - SAP Automation Pilot 
+The goal of SAP Automation Pilot is to simplify and automate complex manual technical processes and flows. This enables DevOps teams to run their solutions on SAP BTP with minimal operational effort.
+
+## SAP Automation Pilot is a low-code / no-code automation engine that allows you to:
+- Automate sequences of steps,
+- Execute scripts in a serverless manner,
+- Use catalogs of commands provided by SAP to automate typical Ops tasks in and outside your SAP BTP landscape,
+- Build custom automations.
+
+Automations in SAP Automation Pilot can be triggered in various ways to best fit your operational needs - manually by the DevOps team, through the built-in scheduler, automatically via integration with services and ops platforms like SAP Cloud ALM, or by other applications and systems.
+
+The service is designed to work with low latency, even under a heavy workload, and is capable of triggering hundreds of automations simultaneously.
 
 ### ** SAP Build Code Overview **
 - Introduction to **SAP Build Code** and how it accelerates application development.
@@ -29,8 +50,6 @@ This session is designed for **SAP partners, customers, and developers** who wan
 
 ---
 
-
-
 ### ** Seamless Software Delivery: Transport Management & CI/CD Pipelines on SAP BTP *
 - Deep dive into **SAP Cloud Transport Management (cTMS)** and **SAP Continuous Integration & Delivery (CI/CD)**.
 -  **Hands-on:** 
@@ -38,7 +57,6 @@ This session is designed for **SAP partners, customers, and developers** who wan
   - Integrating **cTMS** for centralized **control, tracking, and transport management**.
 
 ---
-
 
 ### ** Alert Notification Service for SAP BTP in Action **
 - Introduction to **SAP Alert Notification Service**.
@@ -48,17 +66,10 @@ This session is designed for **SAP partners, customers, and developers** who wan
 
 ---
 
-### ** Day 2 Operations with SAP Automation Pilot **
-- Introduction to **SAP Automation Pilot** for automating **operational tasks and remediations**.
--  **Hands-on:**
-  - Creating and testing **automation workflows** for common operational tasks.
-  - Exploring potential **use cases** where SAP Automation Pilot adds value for Ops teams.
-
 
 ---
 
-## **Prerequisites**
-To get the most out of this hands-on session, please ensure:
+## **Prerequisites to check the extended use case covering Business Applicaiton Studio **
 
 ✅ You have an **SAP BTP account** with access to **SAP Business Application Studio**.  
 ✅ You are familiar with **basic cloud development concepts** and **Git**.  
