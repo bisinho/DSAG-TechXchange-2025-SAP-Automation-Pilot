@@ -10,6 +10,7 @@ This hands-on workshop guides you through automating the recovery of a Cloud Fou
 - A Cloud Foundry application
 - SAP AI Core credentials and a GPT-4o deployment
 - **Technical user** (already created) :
+- 
   U: DL_6614E329346A9101347C615F@global.corp.sap
   
   P: DSAG2025!
