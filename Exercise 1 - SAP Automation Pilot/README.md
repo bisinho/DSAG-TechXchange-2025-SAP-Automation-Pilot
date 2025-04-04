@@ -11,6 +11,7 @@ This hands-on workshop guides you through automating the recovery of a Cloud Fou
 - SAP AI Core credentials and a GPT-4o deployment
 - **Technical user** (already created) :
   U: DL_6614E329346A9101347C615F@global.corp.sap
+  
   P: DSAG2025!
 
 **Note:** These prerequisites will be provided to you during the DSAG TechXchange 2025 event.
