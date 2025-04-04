@@ -8,7 +8,7 @@ This session is designed for **SAP partners, customers, and developers** who wan
 
 ## **Hands-on sessions covered during this session**
 
-![](./pic-h19-001.png) 
+![](./h19-001.png) 
 
 ![](./enablement-01.png)
 ---
