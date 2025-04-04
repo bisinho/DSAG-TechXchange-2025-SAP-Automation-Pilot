@@ -1,6 +1,6 @@
 
 
-# DSAG TechXchange 2025 – Session H19: Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency![image](https://github.com/user-attachments/assets/2be9eee8-d03a-48e1-8e48-9e7c7424de1b)
+# DSAG TechXchange 2025 – Session H19: Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency!
 
 
 Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
