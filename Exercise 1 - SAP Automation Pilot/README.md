@@ -67,7 +67,7 @@ Add a new step to the command to retrieve the application's audit events.
 3. Use this prompt:
 
 ```
-Get Cloud Foundry application events
+Get CF app events
 ```
 
 This will fetch relevant audit events for troubleshooting.
