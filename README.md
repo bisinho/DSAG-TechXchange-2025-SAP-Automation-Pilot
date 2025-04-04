@@ -10,11 +10,7 @@ This session is designed for **SAP partners, customers, and developers** who wan
 
 ![](./h19-001.png) 
 
-![](./enablement-01.png)
----
-
-## **Hands-on sessions covered in this repo**
-
+Within the hands-on tutorial we will cover: 
 - Introduction to **SAP Automation Pilot** for automating **operational tasks and remediations**.
 -  **Hands-on:**
   - Creating and testing **automation workflows** for common operational tasks.
@@ -33,6 +29,19 @@ The goal of SAP Automation Pilot is to simplify and automate complex manual tech
 Automations in SAP Automation Pilot can be triggered in various ways to best fit your operational needs - manually by the DevOps team, through the built-in scheduler, automatically via integration with services and ops platforms like SAP Cloud ALM, or by other applications and systems.
 
 The service is designed to work with low latency, even under a heavy workload, and is capable of triggering hundreds of automations simultaneously.
+##  **Let's Build & Automate!**
+This enablement day is **interactive and hands-on**, ensuring you gain **real-world experience** with SAP BTP DevOps tools. Get ready to **develop, deploy, and automate** like a pro!
+
+ **For any questions or support, reach out to us during the event!**  
+
+-------------
+ 
+## **More hands-on topics available  in this repo**
+
+**SAP Automaiton** Pilot plays also crucial role in Day 2 operations for app development in the context of SAP Build Code. This is why in this repo you can find more context about its potential usage and how it fits into the SAP Build Code and the CAP approach. 
+
+![](./enablement-01.png)
+
 
 ### ** SAP Build Code Overview **
 - Introduction to **SAP Build Code** and how it accelerates application development.
@@ -66,8 +75,6 @@ The service is designed to work with low latency, even under a heavy workload, a
   - Consuming **events** and setting up **instant notifications** for cloud applications on SAP BTP.
 
 ---
-
-
 ---
 
 ## **Prerequisites to check the extended use case covering Business Applicaiton Studio **
@@ -78,7 +85,4 @@ The service is designed to work with low latency, even under a heavy workload, a
 
 ---
 
-##  **Let's Build & Automate!**
-This enablement day is **interactive and hands-on**, ensuring you gain **real-world experience** with SAP BTP DevOps tools. Get ready to **develop, deploy, and automate** like a pro!
 
- **For any questions or support, reach out to us during the event!**  
