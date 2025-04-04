@@ -1,8 +1,10 @@
 
 
-# DevOps with SAP Business Technology Platform (SAP BTP) – Hands-On Enablement
+# DSAG TechXchange 2025 – Session H19: Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency![image](https://github.com/user-attachments/assets/2be9eee8-d03a-48e1-8e48-9e7c7424de1b)
 
-Welcome to our **on-site hands-on enablement session** on **DevOps with SAP Business Technology Platform (SAP BTP)**! This event is designed for **SAP partners, customers, and developers** who want to streamline their cloud application development and operations using **SAP BTP DevOps tools and best practices**.
+
+Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
+This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application development and operations using **automation tools provided by SAP**.
 
 ![](./enablement-01.png)
 ---
