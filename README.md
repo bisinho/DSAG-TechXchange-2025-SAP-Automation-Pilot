@@ -6,6 +6,10 @@
 Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
 This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application operations using **automation tools provided by SAP**.
 
+***IMPORTANT*** Link to presentation: 
+![](./DSAG TechXchange - Leveraging GenAI in SAP Automation Pilot-04-2025.pdf)
+
+
 ## **Hands-on sessions covered during this session**
 
 ![](./h19-001.png) 
