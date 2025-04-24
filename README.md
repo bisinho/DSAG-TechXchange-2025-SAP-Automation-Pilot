@@ -4,7 +4,7 @@
 
 ## 📄 [👉 Download the DSAG TechXchange 2025 PDF Presentation: *Leveraging GenAI in SAP Automation Pilot*](https://github.com/bisinho/DSAG-TechXchange-2025-SAP-Automation-Pilot/blob/main/DSAG%20TechXchange%20-%20Leveraging%20GenAI%20in%20SAP%20Automation%20Pilot-04-2025.pdf)
 
-Welcome to our **on-site hands-on labn** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
+Welcome to our **on-site hands-on lab** on **Leveraging GenAI in SAP Automation Pilot for Enhanced Operational Efficiency**! 
 This session is designed for **SAP partners, customers, and developers** who want to streamline their cloud application operations using **automation tools provided by SAP**.
 
 ## **Hands-on sessions covered during this session**
