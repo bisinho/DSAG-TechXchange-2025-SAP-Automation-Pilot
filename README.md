@@ -13,7 +13,7 @@ This session is designed for **SAP partners, customers, and developers** who wan
 
 Within the hands-on tutorial we will cover: 
 - Introduction to **SAP Automation Pilot** for automating **operational tasks and remediations**.
--  **Hands-on:**
+**Hands-on:**
   - Creating and testing **automation workflows** for common operational tasks.
   - Exploring potential **use cases** where SAP Automation Pilot adds value for Ops teams by leveraging built-in GenAI features
   - Extending SAP Automation Pilot built-in Content Generation Assistant by integrating it to SAP AI Core service
